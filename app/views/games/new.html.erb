@@ -1,0 +1,27 @@
+<div class="container">
+
+  <h1>Games#new</h1>
+  <p>Find me in app/views/games/new.html.erb</p>
+  <div class="grid">
+    <% @i.each do |letter|%>
+    <div class="letter">
+      <h4> <%= letter %></h4>
+    </div>
+    <% end %>
+  </div>
+
+
+  <form action="/score" type="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="form-group">
+      <label for="attempt"></label>
+      <input type="text" name="attempt" class="form-control">
+    </div>
+    <%= hidden_field_tag 'time', @start_time %>
+    <%= hidden_field_tag 'grid', @i %>
+
+    <input type="submit" class="btn btn-default">
+  </form>
+
+</div>
+
